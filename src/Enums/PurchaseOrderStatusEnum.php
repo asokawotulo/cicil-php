@@ -31,4 +31,11 @@ class PurchaseOrderStatusEnum
 	 * @var string
 	 */
 	const CANCEL = 'cancel';
+
+	/**
+	 * Transaction has been cancelled by Cicil
+	 * 
+	 * @var string
+	 */
+	const CANCELED = 'canceled';
 }
