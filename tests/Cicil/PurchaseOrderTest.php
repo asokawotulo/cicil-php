@@ -27,13 +27,13 @@ class PurchaseOrderTest extends TestCase
 	{
 		$params = [
 			'transaction'  => [
-				'total_amount' => 1_000_000,
+				'total_amount' => 1000000,
 				'transaction_id' => 'TEST-' . time(),
 				'item_list' => [
 					[
 						'item_id' => '1',
 						'name' => 'Test',
-						'price' => 1_000_000,
+						'price' => 1000000,
 						'quantity' => 1,
 					]
 				],
