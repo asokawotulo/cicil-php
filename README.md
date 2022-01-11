@@ -6,8 +6,9 @@ This library is an abstraction of Cicil's API for applications written with PHP.
 - [Links](#links)
 - [Installation](#installation)
 - [Usage](#usage)
-	- [Initialization](#initialization)
-	- [Create Purchase Order](#create-purchase-order)
+  - [Initialization](#initialization)
+  - [Create Purchase Order](#create-purchase-order)
+  - [Verify Callback Token](#verify-callback-token)
 
 ## Links
 - [Main documentation](https://docs.cicil.app/)
@@ -30,6 +31,8 @@ Cicil::setMerchantSecret('xxxxxxxx');
 
 ### Create Purchase Order
 ```php
+use Cicil\Cicil;
+
 $purchaseOrderData = [
     'transaction' => [
         'total_amount' => 13119000,
@@ -108,4 +111,34 @@ $purchaseOrderData = [
 $response = Cicil::createPurchaseOrder($purchaseOrderData);
 
 echo $response['url'];
+```
+
+### Verify Callback Token
+```php
+use Cicil\Common\Utils as CicilUtils;
+use Cicil\Cicil;
+
+$request = [
+    'headers' => [
+        'authorization' => 'Basic xxxx',
+        'date' => 'Tue, 11 Jan 2022 19:42:43 GMT',
+    ],
+];
+
+$apiKey = Cicil::getApiKey();
+$merchantId = Cicil::getMerchantId();
+$merchantSecret = Cicil::getMerchantSecret();
+$date = $request['headers']['date'];
+
+$requestToken = str_replace('Basic ', '', $request['headers']['authorization'])
+$generatedToken = CicilUtils::generateAuthorizationToken(
+    $apiKey,
+    $merchantId,
+    $merchantSecret,
+    $date,
+);
+
+if ($generatedToken != $requestToken) {
+    throw new Error('Authorization token invalid');
+}
 ```
