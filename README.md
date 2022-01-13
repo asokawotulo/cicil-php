@@ -8,6 +8,10 @@ This library is an abstraction of Cicil's API for applications written with PHP.
 - [Usage](#usage)
   - [Initialization](#initialization)
   - [Create Purchase Order](#create-purchase-order)
+  - [Create Notification](#create-notification)
+    - [Create Shipping Notification](#create-shipping-notification)
+    - [Create Delivered Notification](#create-delivered-notification)
+    - [Create Shipping Notification](#create-shipping-notification-1)
   - [Verify Callback Token](#verify-callback-token)
 
 ## Links
@@ -111,6 +115,49 @@ $purchaseOrderData = [
 $response = Cicil::createPurchaseOrder($purchaseOrderData);
 
 echo $response['url'];
+```
+
+### Create Notification
+#### Create Shipping Notification
+```php
+use Cicil\Cicil;
+use Cicil\Enums\PurchaseOrderStatusEnum;
+
+$notifcationData = [
+    'po_no' =>  'PO191219-162490',
+    'po_status' =>  PurchaseOrderStatusEnum::SHIPPING,
+    'transaction_id' => 'ORD10111808',
+    'shipment_provider' =>  'JNE',
+    'shipment_no' =>  '14045'
+];
+Cicil::createNotification($notificationData);
+```
+
+#### Create Delivered Notification
+```php
+use Cicil\Cicil;
+use Cicil\Enums\PurchaseOrderStatusEnum;
+
+$notifcationData = [
+    'po_no' =>  'PO191219-162490',
+    'po_status' =>  PurchaseOrderStatusEnum::DELIVERED,
+    'transaction_id' => 'ORD10111808'
+];
+Cicil::createNotification($notificationData);
+```
+
+#### Create Shipping Notification
+```php
+use Cicil\Cicil;
+use Cicil\Enums\PurchaseOrderStatusEnum;
+
+$notifcationData = [
+    'po_no' =>  'PO191219-162490',
+    'po_status' =>  PurchaseOrderStatusEnum::CANCEL,
+    'transaction_id' => 'ORD10111808',
+    'reason' =>  'wrong product'
+];
+Cicil::createNotification($notificationData);
 ```
 
 ### Verify Callback Token
