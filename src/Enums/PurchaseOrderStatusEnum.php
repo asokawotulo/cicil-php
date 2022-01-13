@@ -38,4 +38,18 @@ class PurchaseOrderStatusEnum
 	 * @var string
 	 */
 	const CANCELED = 'canceled';
+
+	/**
+	 * Product has been shipped
+	 * 
+	 * @var string
+	 */
+	const SHIPPING = 'shipping';
+
+	/**
+	 * Product has been delivered
+	 * 
+	 * @var string
+	 */
+	const DELIVERED = 'delivered';
 }

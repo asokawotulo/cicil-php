@@ -131,8 +131,26 @@ class Cicil
 		self::setApiUrl(constant($constant));
 	}
 
+
+	/**
+	 * Create purchase order
+	 * 
+	 * @param array $params 
+	 * @return array 
+	 */
 	public static function createPurchaseOrder($params)
 	{
 		return PurchaseOrder::create($params);
+	}
+
+	/**
+	 * Create notification
+	 * 
+	 * @param array $params
+	 * @return array 
+	 */
+	public static function createNotification($params)
+	{
+		return Notification::create($params);
 	}
 }
