@@ -7,6 +7,9 @@ class Cicil
 	const SANDBOX = 'SANDBOX';
 	const SANDBOX_URL = 'https://sandbox-api.cicil.dev/v1/';
 
+	const STAGING = 'STAGING';
+	const STAGING_URL = 'https://staging-api.cicil.dev/v1/';
+
 	const PRODUCTION = 'PRODUCTION';
 	const PRODUCTION_URL = 'https://api.cicil.co.id/v1/';
 
