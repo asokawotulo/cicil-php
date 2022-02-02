@@ -22,7 +22,6 @@ class NotificationTest extends TestCase
 		Cicil::setEnv(Cicil::PRODUCTION);
 	}
 
-
 	public function testNotificationThrowsInvalidArgumentexception()
 	{
 		$this->expectException(\InvalidArgumentException::class);
