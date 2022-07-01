@@ -12,6 +12,7 @@ This library is an abstraction of Cicil's API for applications written with PHP.
     - [Create Shipping Notification](#create-shipping-notification)
     - [Create Delivered Notification](#create-delivered-notification)
     - [Create Shipping Notification](#create-shipping-notification-1)
+  - [Create Installment Simulation](#create-installment-simulation)
   - [Verify Callback Token](#verify-callback-token)
 
 ## Links
@@ -158,6 +159,18 @@ $notifcationData = [
     'reason' =>  'wrong product'
 ];
 Cicil::createNotification($notificationData);
+```
+
+### Create Installment Simulation
+```php
+use Cicil\Cicil;
+
+$simulationData = [
+    'price' => 5000000,
+    'dp' => 1000000, // 0 for minimum down payment amount
+    'tenure' => 12, // 0 for default tenure duration
+];
+Cicil::createInstallmentSimulation($simulationData);
 ```
 
 ### Verify Callback Token
