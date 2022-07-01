@@ -156,4 +156,15 @@ class Cicil
 	{
 		return Notification::create($params);
 	}
+
+	/**
+	 * Create installment simulation
+	 * 
+	 * @param array $params 
+	 * @return array 
+	 */
+	public static function createInstallmentSimulation($params)
+	{
+		return InstallmentSimulation::create($params);
+	}
 }
